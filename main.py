@@ -63,3 +63,22 @@ class QuizGame:
         print("\n" + "="*30)
         print(f"게임 종료! 당신의 최종 점수는 {self.score}/{len(self.quizzes)}입니다.")
         print("="*30)
+
+
+def main():
+    # 1. 퀴즈 데이터 생성 (나중에 JSON 파일에서 불러올 예정입니다)
+    quiz_list = [
+        Quiz("파이썬의 탄생 연도는?", ["1989", "1991", "1995", "2000"], 2),
+        Quiz("파이썬의 창시자는?", ["귀도 반 로섬", "엘론 머스크", "빌 게이츠", "마크 저커버그"], 1),
+        Quiz("리스트에 요소를 추가하는 메서드는?", ["add()", "push()", "append()", "insert_at()"], 3),
+        Quiz("파이썬에서 '참'을 나타내는 키워드는?", ["True", "true", "TRUE", "T"], 1),
+        Quiz("나머지를 구하는 연산자는?", ["/", "//", "%", "**"], 3)
+    ]
+
+    # 2. 게임 객체 생성 및 시작
+    game = QuizGame(quiz_list)
+    game.start()
+
+# 이 파일이 직접 실행될 때만 main()을 호출합니다.
+if __name__ == "__main__":
+    main()
