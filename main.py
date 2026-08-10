@@ -149,21 +149,28 @@ class QuizGame:
             print(f"{i}. {item['q']} (정답: {item['a']})")
 
     def run(self):
-        while True:
-            choice = self.display_menu()
-            if choice == '1':
-                self.play()
-            elif choice == '2':
-                self.add_new_quiz()
-            elif choice == '3':
-                self.show_list()
-            elif choice == '4':
-                print(f"\n현재 최고 점수: {self.manager.data['high_score']}점")
-            elif choice == '5':
-                print("프로그램을 종료합니다. 즐거운 하루 되세요!")
-                break
-            else:
-                print("⚠️ 잘못된 선택입니다. 다시 입력해주세요.")
+        try:
+            while True:
+                choice = self.display_menu()
+                
+                if choice == '1':
+                    self.play()
+                elif choice == '2':
+                    self.add_new_quiz()
+                elif choice == '3':
+                    self.show_list()
+                elif choice == '4':
+                    print(f"\n🏆 현재 최고 점수: {self.manager.data['high_score']}점")
+                elif choice == '5':
+                    print("👋 프로그램을 종료합니다. 다음에 또 만나요!")
+                    break
+                else:
+                    print("⚠️ 잘못된 선택입니다. 1~5 사이의 숫자를 입력해주세요.")
+        
+        # Ctrl+C(KeyboardInterrupt) 또는 EOFError(입력 종료) 발생 시 처리
+        except (KeyboardInterrupt, EOFError):
+            print("\n\n👋 프로그램이 강제 종료되었습니다. 데이터를 안전하게 저장하고 종료합니다.")
+            self.manager.save_data()
 
 # 프로그램 시작
 if __name__ == "__main__":
