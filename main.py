@@ -57,6 +57,30 @@ class QuizGame:
     def __init__(self):
         self.manager = QuizManager()
 
+    # --- [08번 커밋: 새로 추가되는 메서드들] ---
+    def add_new_quiz(self):
+        print("\n➕ 새로운 퀴즈 추가")
+        question = self.get_input("질문: ")
+        answer = self.get_input("정답: ")
+        
+        new_quiz = {"q": question, "a": answer}
+        self.manager.data["quizzes"].append(new_quiz)
+        self.manager.save_data()
+        print("✅ 퀴즈가 성공적으로 추가되었습니다!")
+
+    def show_list(self):
+        quizzes = self.manager.data["quizzes"]
+        print("\n📋 현재 퀴즈 목록")
+        print("-" * 30)
+        if not quizzes:
+            print("등록된 퀴즈가 없습니다.")
+        else:
+            for i, item in enumerate(quizzes, 1):
+                # f-string을 사용하여 목록을 깔끔하게 출력합니다.
+                print(f"{i}. {item['q']} (정답: {item['a']})")
+        print("-" * 30)
+    #08커밋 추가 완료
+
     def get_input(self, prompt, required=True): # [커밋5]
         """입력값이 비어있지 않은지 확인하고 반환하는 안전한 입력 메서드"""
         while True:
