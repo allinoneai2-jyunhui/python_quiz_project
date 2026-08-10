@@ -3,12 +3,6 @@
 
 이 프로그램은 객체지향 프로그래밍(OOP)을 활용하여 만든 터미널 기반 퀴즈 게임입니다.
 
-## 🚀 실행 방법
-1. 이 저장소를 클론(Clone)하거나 ZIP으로 다운로드합니다.
-2. 터미널(또는 CMD)에서 해당 폴더로 이동합니다.
-3. 아래 명령어를 입력하여 실행합니다:
-   ```bash
-   python main.py
 
 ## 프로젝트 개요
 | 단계 | 작업 내용 |
@@ -42,7 +36,8 @@
 4. 최고 점수 확인
 5. 종료
 
-=========================
+========================
+
 메뉴를 선택하세요: 
 
 
@@ -115,7 +110,7 @@ high_score: 역대 최고 점수 기록 (정수형)
 <img width="849" height="573" alt="Screenshot 2026-08-10 at 9 21 34 AM" src="https://github.com/user-attachments/assets/7ab2d717-a17f-4c0c-8744-156835a727e3" />
 <img width="542" height="590" alt="Screenshot 2026-08-10 at 9 22 19 AM" src="https://github.com/user-attachments/assets/829958db-832f-47fb-b322-ec11cf8060bc" />
 
-git push origin main : 내 컴퓨터의 내요을 깃허브에 올리는 명령
+git push origin main : 내 컴퓨터의 내용을 깃허브에 올리는 명령
 
 ---
 
@@ -124,10 +119,10 @@ git push origin main : 내 컴퓨터의 내요을 깃허브에 올리는 명령
 <img width="542" height="549" alt="Screenshot 2026-08-10 at 9 22 32 AM" src="https://github.com/user-attachments/assets/328304d3-a368-4d0e-8656-7be7713a911b" />
 <img width="542" height="405" alt="Screenshot 2026-08-10 at 9 22 46 AM" src="https://github.com/user-attachments/assets/0ca1903c-28d3-4ecb-a6e9-2e52ce84fdde" />
 
-__init__: 게임에 필요한 퀴즈 리스트와 점수(score)를 초기화합니다.
-start(): for문을 사용하여 퀴즈를 하나씩 꺼내 화면에 보여줍니다.
-enumerate(self.quizzes, 1): 문제 번호를 1번부터 예쁘게 매기기 위해 사용합니다.
-try-except: 사용자가 숫자가 아닌 문자(예: 'a')를 입력했을 때 프로그램이 꺼지지 않도록 방어합니다.
+__init__: 게임에 필요한 퀴즈 리스트와 점수(score)를 초기화. 스코어는 0으로 정의해주고 시작.
+start(): for문을 사용하여 퀴즈를 하나씩 꺼내 화면에 보여줌.
+enumerate(self.quizzes, 1): 문제 번호를 1번부터 매기기 위해 사용.
+try-except: 사용자가 숫자가 아닌 문자(예: 'a')를 입력했을 때 프로그램이 꺼지지 않도록 함.
 
 
 `QuizGame` 클래스의 기본 구조를 만들고, 메뉴를 통해 게임이 동작할 수 있도록 구성하였다.
@@ -273,9 +268,9 @@ Git: 코드의 변경 이력을 기록하는 버전 관리 시스템 과거로 �
 
 init: 새로운 Git 저장소 만들기(시작).
 
-add: 변경된 파일을 기록할 준비(장바구니에 담기).
+add: 변경된 파일을 기록할 준비.
 
-commit: 변경 사항을 확정하여 기록(사진 찍기).
+commit: 변경 사항을 확정하여 기록.
 
 push: 로컬의 기록을 원격 저장소(GitHub)에 올리기.
 
