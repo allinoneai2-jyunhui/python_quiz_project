@@ -85,18 +85,30 @@ class QuizGame:
             return
 
         score = 0
-        print(f"\n총 {len(quizzes)}문제를 시작합니다!")
+        total = len(quizzes)
+        
+        print(f"\n🚀 퀴즈 게임을 시작합니다! (총 {total}문제)")
+        print("-" * 30)
+
         for i, item in enumerate(quizzes, 1):
-            answer = input(f"Q{i}. {item['q']}: ").strip()
-            if answer == item['a']:
+            print(f"[{i}/{total}] {item['q']}")
+            user_answer = self.get_input("답변 입력: ")
+
+            # 정답 체크 로직 (공백 제거 및 소문자 변환으로 유연하게 체크)
+            if user_answer.strip().lower() == item['a'].strip().lower():
                 print("✅ 정답입니다!")
                 score += 1
             else:
-                print(f"❌ 틀렸습니다. 정답은 '{item['a']}'입니다.")
+                print(f" 틀렸습니다. (정답: {item['a']})")
+            print("-" * 30)
+
+        # 최종 결과 출력
+        print(f"\n📊 게임 종료! 최종 점수: {score} / {total}")
         
-        print(f"\n최종 점수: {score}/{len(quizzes)}")
         if self.manager.update_high_score(score):
             print("🎊 축하합니다! 최고 기록을 경신했습니다!")
+        else:
+            print(f"현재 최고 기록: {self.manager.data['high_score']}점")
 
     def add_new_quiz(self):
         q = input("새로운 문제 내용을 입력하세요: ")
