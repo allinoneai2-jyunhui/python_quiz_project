@@ -41,6 +41,7 @@
 3. 퀴즈 목록
 4. 최고 점수 확인
 5. 종료
+
 =========================
 메뉴를 선택하세요: 
 
@@ -101,14 +102,14 @@ high_score: 역대 최고 점수 기록 (정수형)
 ## 커밋별 작업 내용
 
 ### Commit 01
-**커밋 이름:**  
+**저장소 설정 및 로드맵 작성**  
 
 프로젝트의 전체 코드 초안을 작성하고, 퀴즈 게임의 기본 구조를 구성하였다.
 
 ---
 
 ### Commit 02
-**커밋 이름:**  
+** Quiz 클래스와 기본 퀴즈 데이터 구조 구현**  
 
 `QuizManager` 클래스를 정의하고, 문제・선택지・정답으로 이루어진 기본 데이터 구조를 구현하였다.
 <img width="849" height="573" alt="Screenshot 2026-08-10 at 9 21 34 AM" src="https://github.com/user-attachments/assets/7ab2d717-a17f-4c0c-8744-156835a727e3" />
@@ -119,7 +120,7 @@ git push origin main : 내 컴퓨터의 내요을 깃허브에 올리는 명령
 ---
 
 ### Commit 03
-**커밋 이름:**  
+**QuizManager 클래스와 state.json 읽기/쓰기 기능 구현**  
 <img width="542" height="549" alt="Screenshot 2026-08-10 at 9 22 32 AM" src="https://github.com/user-attachments/assets/328304d3-a368-4d0e-8656-7be7713a911b" />
 <img width="542" height="405" alt="Screenshot 2026-08-10 at 9 22 46 AM" src="https://github.com/user-attachments/assets/0ca1903c-28d3-4ecb-a6e9-2e52ce84fdde" />
 
@@ -134,7 +135,7 @@ try-except: 사용자가 숫자가 아닌 문자(예: 'a')를 입력했을 때 �
 ---
 
 ### Commit 04
-**커밋 이름:**  
+**QuizGame 클래스와 전체 실행 흐름 구성**  
 
 `main` 함수를 구현하여 프로그램의 실행 흐름을 정리하고, 전체 게임이 정상적으로 실행되는지 테스트하였다.
 quiz_list: Quiz 클래스의 인스턴스들을 리스트로 만듭니다. (임시 데이터 5개)
@@ -145,7 +146,7 @@ if __name__ == "__main__":: 이 코드는 "이 파일이 메인으로 실행될 
 ---
 
 ### Commit 05
-**커밋 이름:**  
+**메뉴 시스템과 주요 기능 연결**  
 
 파일 입출력 과정에서 발생할 수 있는 예외를 처리하고, 데이터 파일이 비어 있거나 손상되었을 때 자동으로 복구할 수 있는 로직을 추가하였다.
 <img width="430" height="149" alt="커밋5  퀴즈게임 클래스에 추가된 내용" src="https://github.com/user-attachments/assets/060b611f-5023-4779-b397-ad9c83422a75" />
@@ -158,7 +159,7 @@ play 및 display_menu 적용: 모든 사용자 입력 지점에 이 안전한 �
 ---
 
 ### Commit 06
-**커밋 이름:**  
+**(브랜치 생성)입력 검증 로직 추가**  
 
 사용자 입력값을 안전하게 처리할 수 있도록 입력 검증 메서드를 구현하였다. 공백 제거, 빈 입력 방지, 잘못된 값 재입력 처리 등을 반영하였다.
 <img width="542" height="483" alt="zjalt06tnwjd" src="https://github.com/user-attachments/assets/429fa678-9e17-4515-af6d-d55e5b8efc42" />
@@ -169,14 +170,14 @@ play 및 display_menu 적용: 모든 사용자 입력 지점에 이 안전한 �
 ---
 
 ### Commit 07
-**(브랜치 생성) feat: 퀴즈 풀기 및 정답 체크 기능 구현**  
+**브랜치 병합) merge: 퀴즈 풀기 기능을 main 브랜치에 병합**  
 
 별도 브랜치에서 퀴즈 풀기 및 정답 체크 기능을 구현하여, 사용자가 문제를 풀고 점수를 확인할 수 있도록 하였다.
 
 ---
 
 ### Commit 08
-**(브랜치 병합) merge: 퀴즈 풀기 기능을 main 브랜치에 병합**  
+**JSONDecodeError 예외 처리와 자동 복구 기능 추가**  
 
 브랜치에서 개발한 퀴즈 풀기 기능을 `main` 브랜치에 병합하고, 브랜치 생성과 병합 과정을 실습하였다.
 <img width="542" height="483" alt="08" src="https://github.com/user-attachments/assets/740979ed-9997-4b2b-a837-c07ef35af3af" />
@@ -184,7 +185,7 @@ play 및 display_menu 적용: 모든 사용자 입력 지점에 이 안전한 �
 ---
 
 ### Commit 09
-**feat: 퀴즈 추가 및 목록 보기 기능 구현**  
+**feat: Ctrl+C, EOFError 비정상 종료 처리 추가**  
 
 퀴즈 추가 및 목록 보기 기능을 구현하여, 사용자가 새로운 문제를 저장하고 기존 문제를 확인할 수 있도록 하였다.
 <img width="626" height="549" alt="09" src="https://github.com/user-attachments/assets/457d31c7-0497-4ebb-986d-543bcb556c12" />
@@ -192,23 +193,17 @@ play 및 display_menu 적용: 모든 사용자 입력 지점에 이 안전한 �
 ---
 
 ### Commit 10
-**fix: Ctrl+C 및 EOFError 비정상 종료 방지 처리
+**Clone 실습: 복제한 저장소에서 README를 수정**
 
 `Ctrl+C` 또는 `EOFError` 발생 시 프로그램이 비정상 종료되지 않도록 예외 처리를 추가하여 안정성을 높였다.
 <img width="626" height="549" alt="09" src="https://github.com/user-attachments/assets/4b67eff8-ae50-42fc-bd9e-12bb44873df6" />
-**  
 
-### Commit 11
-## Clone 실습
-복제한 저장소에서 README를 수정했습니다.
-
-## 클론 실습
-복제한 저장소에서 README를 수정했습니다.
 <깃 저장소 복제 실습 완료 내용>
 원격 GitHub 저장소를 git clone 명령어로 로컬에 복제하였다.
-복제한 저장소에서 README.md 파일을 수정한 뒤 add, commit, push를 수행하여 변경 내용을 원격 저장소에 반영하였다.
+복제한 저장소(quiz-game-clone)에서 README.md 파일을 수정한 뒤 add, commit, push를 수행하여 변경 내용을 원격 저장소에 반영하였다.
 이후 원래 프로젝트 폴더에서 git fetch와 git pull 명령어를 사용해 원격 저장소의 최신 내용을 가져왔고, 수정 사항이 정상적으로 반영되는 것을 확인하였다.
-이를 통해 저장소 복제, 복제본에서의 작업, 원격 반영, 원본 로컬 저장소 동기화 과정을 모두 실습하였다.
+이를 통해 저장소 복제, 복제본에서의 작업, 원격 반영, 원본 로컬 저장소 동기화 과정을 실습함.
+<img width="626" height="223" alt="Screenshot 2026-08-10 at 12 16 07 PM" src="https://github.com/user-attachments/assets/bb36cdd2-76b8-4e93-8b28-0886bf32f1ff" />
 
 
 
