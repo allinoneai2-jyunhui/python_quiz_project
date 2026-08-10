@@ -114,6 +114,7 @@ high_score: 역대 최고 점수 기록 (정수형)
 <img width="849" height="573" alt="Screenshot 2026-08-10 at 9 21 34 AM" src="https://github.com/user-attachments/assets/7ab2d717-a17f-4c0c-8744-156835a727e3" />
 <img width="542" height="590" alt="Screenshot 2026-08-10 at 9 22 19 AM" src="https://github.com/user-attachments/assets/829958db-832f-47fb-b322-ec11cf8060bc" />
 
+git push origin main : 내 컴퓨터의 내요을 깃허브에 올리는 명령
 
 ---
 
@@ -121,6 +122,11 @@ high_score: 역대 최고 점수 기록 (정수형)
 **커밋 이름:**  
 <img width="542" height="549" alt="Screenshot 2026-08-10 at 9 22 32 AM" src="https://github.com/user-attachments/assets/328304d3-a368-4d0e-8656-7be7713a911b" />
 <img width="542" height="405" alt="Screenshot 2026-08-10 at 9 22 46 AM" src="https://github.com/user-attachments/assets/0ca1903c-28d3-4ecb-a6e9-2e52ce84fdde" />
+
+__init__: 게임에 필요한 퀴즈 리스트와 점수(score)를 초기화합니다.
+start(): for문을 사용하여 퀴즈를 하나씩 꺼내 화면에 보여줍니다.
+enumerate(self.quizzes, 1): 문제 번호를 1번부터 예쁘게 매기기 위해 사용합니다.
+try-except: 사용자가 숫자가 아닌 문자(예: 'a')를 입력했을 때 프로그램이 꺼지지 않도록 방어합니다.
 
 
 `QuizGame` 클래스의 기본 구조를 만들고, 메뉴를 통해 게임이 동작할 수 있도록 구성하였다.
@@ -131,6 +137,10 @@ high_score: 역대 최고 점수 기록 (정수형)
 **커밋 이름:**  
 
 `main` 함수를 구현하여 프로그램의 실행 흐름을 정리하고, 전체 게임이 정상적으로 실행되는지 테스트하였다.
+quiz_list: Quiz 클래스의 인스턴스들을 리스트로 만듭니다. (임시 데이터 5개)
+game = QuizGame(quiz_list): 우리가 만든 게임 클래스에 퀴즈 리스트를 전달함.
+if __name__ == "__main__":: 이 코드는 "이 파일이 메인으로 실행될 때만 게임을 시작해라"라는 뜻. (다른 파일에서 불러올 때 자동으로 게임이 시작되는 걸 방지)
+
 
 ---
 
@@ -139,6 +149,11 @@ high_score: 역대 최고 점수 기록 (정수형)
 
 파일 입출력 과정에서 발생할 수 있는 예외를 처리하고, 데이터 파일이 비어 있거나 손상되었을 때 자동으로 복구할 수 있는 로직을 추가하였다.
 <img width="430" height="149" alt="커밋5  퀴즈게임 클래스에 추가된 내용" src="https://github.com/user-attachments/assets/060b611f-5023-4779-b397-ad9c83422a75" />
+get_input 메서드 신설: 모든 입력 과정에서 공통으로 사용할 수 있는 메서드를 만들었습니다.
+strip()을 통해 앞뒤 공백을 제거합니다.
+while True 루프를 사용하여 사용자가 아무것도 입력하지 않고 엔터를 치면 다시 입력하도록 유도합니다.
+add_new_quiz 개선: 이제 문제나 정답을 빈 칸으로 남겨두고 저장하는 일을 원천 봉쇄합니다.
+play 및 display_menu 적용: 모든 사용자 입력 지점에 이 안전한 메서드를 적용하여 프로그램의 견고함을 높였습니다.
 
 ---
 
@@ -148,6 +163,9 @@ high_score: 역대 최고 점수 기록 (정수형)
 사용자 입력값을 안전하게 처리할 수 있도록 입력 검증 메서드를 구현하였다. 공백 제거, 빈 입력 방지, 잘못된 값 재입력 처리 등을 반영하였다.
 <img width="542" height="483" alt="zjalt06tnwjd" src="https://github.com/user-attachments/assets/429fa678-9e17-4515-af6d-d55e5b8efc42" />
 
+진행도 표시: [1/5]와 같이 현재 몇 번째 문제인지 보여주어 사용자 편의성을 높였습니다.
+유연한 정답 비교: .lower()를 사용하여 영어 정답의 경우 대소문자 구분 없이 정답 처리가 가능하도록 했습니다.
+시각적 구분: - 기호를 사용하여 문제 사이의 경계를 명확히 했습니다.
 ---
 
 ### Commit 07
