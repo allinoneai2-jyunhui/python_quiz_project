@@ -110,12 +110,18 @@ high_score: 역대 최고 점수 기록 (정수형)
 ### Commit 02
 **커밋 이름:**  
 
-`Quiz` 클래스를 정의하고, 문제・선택지・정답으로 이루어진 기본 데이터 구조를 구현하였다.
+`QuizManager` 클래스를 정의하고, 문제・선택지・정답으로 이루어진 기본 데이터 구조를 구현하였다.
+<img width="849" height="573" alt="Screenshot 2026-08-10 at 9 21 34 AM" src="https://github.com/user-attachments/assets/7ab2d717-a17f-4c0c-8744-156835a727e3" />
+<img width="542" height="590" alt="Screenshot 2026-08-10 at 9 22 19 AM" src="https://github.com/user-attachments/assets/829958db-832f-47fb-b322-ec11cf8060bc" />
+
 
 ---
 
 ### Commit 03
 **커밋 이름:**  
+<img width="542" height="549" alt="Screenshot 2026-08-10 at 9 22 32 AM" src="https://github.com/user-attachments/assets/328304d3-a368-4d0e-8656-7be7713a911b" />
+<img width="542" height="405" alt="Screenshot 2026-08-10 at 9 22 46 AM" src="https://github.com/user-attachments/assets/0ca1903c-28d3-4ecb-a6e9-2e52ce84fdde" />
+
 
 `QuizGame` 클래스의 기본 구조를 만들고, 메뉴를 통해 게임이 동작할 수 있도록 구성하였다.
 
@@ -180,6 +186,11 @@ high_score: 역대 최고 점수 기록 (정수형)
 
 ## 클론 실습
 복제한 저장소에서 README를 수정했습니다.
+<깃 저장소 복제 실습 완료 내용>
+원격 GitHub 저장소를 git clone 명령어로 로컬에 복제하였다.
+복제한 저장소에서 README.md 파일을 수정한 뒤 add, commit, push를 수행하여 변경 내용을 원격 저장소에 반영하였다.
+이후 원래 프로젝트 폴더에서 git fetch와 git pull 명령어를 사용해 원격 저장소의 최신 내용을 가져왔고, 수정 사항이 정상적으로 반영되는 것을 확인하였다.
+이를 통해 저장소 복제, 복제본에서의 작업, 원격 반영, 원본 로컬 저장소 동기화 과정을 모두 실습하였다.
 
 
 
@@ -267,6 +278,3 @@ clone: 원격 저장소를 내 컴퓨터로 통째로 복사해오기.
 
 병합: 브랜치에서 만든 기능을 검토 후 메인 코드에 합치는 것.
 
-
-## Clone 실습
-이 문장은 복제한 저장소(quiz-game-clone)에서 추가한 테스트 내용입니다.
