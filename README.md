@@ -174,6 +174,9 @@ high_score: 역대 최고 점수 기록 (정수형)
 <img width="626" height="549" alt="09" src="https://github.com/user-attachments/assets/4b67eff8-ae50-42fc-bd9e-12bb44873df6" />
 **  
 
+### Commit 10
+## Clone 실습
+복제한 저장소에서 README를 수정했습니다.
 
 ## 클론 실습
 복제한 저장소에서 README를 수정했습니다.
