@@ -174,7 +174,7 @@ high_score: 역대 최고 점수 기록 (정수형)
 <img width="626" height="549" alt="09" src="https://github.com/user-attachments/assets/4b67eff8-ae50-42fc-bd9e-12bb44873df6" />
 **  
 
-### Commit 10
+### Commit 11
 ## Clone 실습
 복제한 저장소에서 README를 수정했습니다.
 
@@ -268,3 +268,5 @@ clone: 원격 저장소를 내 컴퓨터로 통째로 복사해오기.
 병합: 브랜치에서 만든 기능을 검토 후 메인 코드에 합치는 것.
 
 
+## Clone 실습
+이 문장은 복제한 저장소(quiz-game-clone)에서 추가한 테스트 내용입니다.
