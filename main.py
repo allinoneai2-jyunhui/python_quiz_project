@@ -57,6 +57,15 @@ class QuizGame:
     def __init__(self):
         self.manager = QuizManager()
 
+    def get_input(self, prompt, required=True): # [커밋5]
+        """입력값이 비어있지 않은지 확인하고 반환하는 안전한 입력 메서드"""
+        while True:
+            value = input(prompt).strip()
+            if not value and required:
+                print("⚠️ 입력값이 비어있습니다. 다시 입력해주세요.")
+                continue
+            return value
+
     def display_menu(self):
         print("\n" + "="*25)
         print("   퀴즈 프로그램   ")
