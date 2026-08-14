@@ -235,6 +235,9 @@ input()으로 사용자 입력을 받는 과정에서 더 이상 입력을 받�
 <img width="338" height="214" alt="Screenshot 2026-08-10 at 12 28 30 PM" src="https://github.com/user-attachments/assets/cbc49923-0fab-4b96-adf9-9b6fe0df4c64" />
 [클론에서 확인 시 main.py, README.md, state.json이 원본 파일과 동일하게 들어가 있는 것을 확인할 수 있다!]
 
+<img width="305" height="342" alt="스크린샷 2026-08-14 오후 4 38 56" src="https://github.com/user-attachments/assets/a50e2f4f-5e87-441d-9ebc-f5a627114140" />
+<img width="927" height="442" alt="스크린샷 2026-08-14 오후 4 39 13" src="https://github.com/user-attachments/assets/7ac1151e-bc02-4437-bebd-947fba4a9477" />
+
 
 
 
