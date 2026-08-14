@@ -224,8 +224,6 @@ input()으로 사용자 입력을 받는 과정에서 더 이상 입력을 받�
 ###  10
 **Clone 실습: 복제한 저장소에서 README를 수정**
 
-`Ctrl+C` 또는 `EOFError` 발생 시 프로그램이 비정상 종료되지 않도록 예외 처리를 추가하여 안정성을 높였다.
-<img width="626" height="549" alt="09" src="https://github.com/user-attachments/assets/4b67eff8-ae50-42fc-bd9e-12bb44873df6" />
 
 <깃 저장소 복제 실습 완료 내용>
 원격 GitHub 저장소를 git clone 명령어로 로컬에 복제하였다.
