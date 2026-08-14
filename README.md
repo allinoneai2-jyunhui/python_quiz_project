@@ -57,9 +57,7 @@
 
 -최고 점수 확인 및 경신
 
--퀴즈 푸는 동안 실시간 문제 풀이량 정보 제공
-
--사용자 답변 공백 삭제
+-퀴즈 푸는 동안 실시간 진도 정보 제공
 
 -비정상 종료 방지
 
@@ -110,99 +108,119 @@ high_score: 역대 최고 점수 기록 (정수형) <br>
 
 ## 커밋별 작업 내용
 
-### Commit 01
+###  01
 **저장소 설정 및 로드맵 작성**  
 
 프로젝트의 전체 코드 초안을 작성하고, 퀴즈 게임의 기본 구조를 구성하였다.
 
 ---
 
-### Commit 02
+###  02
 **Quiz 클래스와 기본 퀴즈 데이터 구조 구현**
 
 `QuizManager` 클래스를 정의하고, 문제・선택지・정답으로 이루어진 기본 데이터 구조를 구현하였다.
-<img width="849" height="573" alt="Screenshot 2026-08-10 at 9 21 34 AM" src="https://github.com/user-attachments/assets/7ab2d717-a17f-4c0c-8744-156835a727e3" />
-<img width="542" height="590" alt="Screenshot 2026-08-10 at 9 22 19 AM" src="https://github.com/user-attachments/assets/829958db-832f-47fb-b322-ec11cf8060bc" />
+<img width="500" height="657" alt="스크린샷 2026-08-14 오후 3 15 48" src="https://github.com/user-attachments/assets/12bba3a3-365e-4ec5-8589-c4043b8406a8" />
+<img width="500" height="518" alt="스크린샷 2026-08-14 오후 3 16 08" src="https://github.com/user-attachments/assets/d762536d-23bb-46e1-846f-3952cc31d0f3" />
+<img width="500" height="208" alt="스크린샷 2026-08-14 오후 3 16 21" src="https://github.com/user-attachments/assets/83ae9c63-6906-46b2-a761-53bc8d09bc6d" />
+
+QuizManager는 데이터 관리 및 파일 입출력을 담당하는 클래스.
 
 git push origin main : 내 컴퓨터의 내용을 깃허브에 올리는 명령
 
 ---
 
-### Commit 03
-**QuizManager 클래스와 state.json 읽기/쓰기 기능 구현**  
+###  03
+**QuizGame 클래스 정의**  
 <img width="542" height="549" alt="Screenshot 2026-08-10 at 9 22 32 AM" src="https://github.com/user-attachments/assets/328304d3-a368-4d0e-8656-7be7713a911b" />
 <img width="542" height="405" alt="Screenshot 2026-08-10 at 9 22 46 AM" src="https://github.com/user-attachments/assets/0ca1903c-28d3-4ecb-a6e9-2e52ce84fdde" />
 
-__init__: 게임에 필요한 퀴즈 리스트와 점수(score)를 초기화. 스코어는 0으로 정의해주고 시작.
-start(): for문을 사용하여 퀴즈를 하나씩 꺼내 화면에 보여줌.
-enumerate(self.quizzes, 1): 문제 번호를 1번부터 매기기 위해 사용.
-try-except: 사용자가 숫자가 아닌 문자(예: 'a')를 입력했을 때 프로그램이 꺼지지 않도록 함.
+QuizGame는 사용자 인터페이스 및 게임 흐름을 담당하는 클래스.
 
-
-`QuizGame` 클래스의 기본 구조를 만들고, 메뉴를 통해 게임이 동작할 수 있도록 구성하였다.
+`QuizGame` 클래스의 기본 구조를 만들고, 메뉴를 통해 게임이 동작할 수 있도록 구성함.
 
 ---
 
-### Commit 04
-**QuizGame 클래스와 전체 실행 흐름 구성**  
+###  04
+**최고 점수 기록 기능**  
+<img width="500" height="154" alt="스크린샷 2026-08-14 오후 3 22 22" src="https://github.com/user-attachments/assets/f718f5d2-18ba-42ef-8e1d-464c10a1981f" />
 
-`main` 함수를 구현하여 프로그램의 실행 흐름을 정리하고, 전체 게임이 정상적으로 실행되는지 테스트하였다.
-quiz_list: Quiz 클래스의 인스턴스들을 리스트로 만듭니다. (임시 데이터 5개)
-game = QuizGame(quiz_list): 우리가 만든 게임 클래스에 퀴즈 리스트를 전달함.
-if __name__ == "__main__":: 이 코드는 "이 파일이 메인으로 실행될 때만 게임을 시작해라"라는 뜻. (다른 파일에서 불러올 때 자동으로 게임이 시작되는 걸 방지)
+변수를 0으로 초기화하고 시작. 퀴즈를 모두 푼 후 획득한 점수를 기존 최고 점수와 비교하여 더 높은 점수일 경우 최고 점수를 갱신하도록 구현함. 최고 점수는 state.json의 high_score에 저장되어 프로그램을 종료한 후에도 기록이 유지됨.
+
+update_high_score() 메서드에서 현재 점수와 기존 최고 점수를 비교함. 현재 점수가 더 높은 경우에만 high_score를 새로운 점수로 변경하고 save_data()를 호출하여 JSON 파일에 저장함. 기존 최고 점수보다 낮거나 같은 경우에는 기존 기록을 그대로 유지함.
+
+이를 통해 사용자가 이전 기록보다 높은 점수를 획득했을 때 최고 기록을 경신했다는 메시지를 출력하도록 구현함.
+
+
+<img width="500" height="177" alt="스크린샷 2026-08-14 오후 3 24 23" src="https://github.com/user-attachments/assets/bfa22388-a2af-4097-a4c6-173361e201bc" />
+
+
+
+---
+
+###  05
+**state.json에 대하여..**  
+
+<img width="691" height="699" alt="스크린샷 2026-08-14 오후 3 25 50" src="https://github.com/user-attachments/assets/230ea7ee-a5fc-4c88-9494-acc5eb6df51a" />
+ 정보, 데이터만 따로 빼두는 공간이라고 생각함. 기본적으로 만든 5개의 문제와 선지와 더불어, 사용자가 메뉴에서 문제 추가시 이 공간에 문제(q)와 답(a)이 각각 추가 됨. 문제별로, 답별로 q와 a로 구분하였지만 가독성을 높이기 위해 나의 state.json에서는 딕셔너리의 형태로 quiz_set별로 묶어 놓았음.
 
 
 ---
 
-### Commit 05
-**메뉴 시스템과 주요 기능 연결**  
+###  06
+**브랜치 생성과 병합**  
 
-파일 입출력 과정에서 발생할 수 있는 예외를 처리하고, 데이터 파일이 비어 있거나 손상되었을 때 자동으로 복구할 수 있는 로직을 추가하였다.
-<img width="430" height="149" alt="커밋5  퀴즈게임 클래스에 추가된 내용" src="https://github.com/user-attachments/assets/060b611f-5023-4779-b397-ad9c83422a75" />
-get_input 메서드 신설: 모든 입력 과정에서 공통으로 사용할 수 있는 메서드를 만들었습니다.
-strip()을 통해 앞뒤 공백을 제거합니다.
-while True 루프를 사용하여 사용자가 아무것도 입력하지 않고 엔터를 치면 다시 입력하도록 유도합니다.
-add_new_quiz 개선: 이제 문제나 정답을 빈 칸으로 남겨두고 저장하는 일을 원천 봉쇄합니다.
-play 및 display_menu 적용: 모든 사용자 입력 지점에 이 안전한 메서드를 적용하여 프로그램의 견고함을 높였습니다.
+<img width="563" height="351" alt="스크린샷 2026-08-14 오후 3 31 49" src="https://github.com/user-attachments/assets/e84feff2-4e60-4cf7-9ead-e9ba61f055f8" />
+#### Git 브랜치 생성 및 병합 실습
+1. 작업 목적
 
----
+기존 퀴즈 프로그램에 4지선다형 퀴즈 기능을 추가하고,
+Git의 브랜치 생성, 커밋, 병합 과정을 실습한다.
 
-### Commit 06
-**브랜치 생성 : 입력 검증 로직 추가**  
+2. 브랜치 생성
 
-사용자 입력값을 안전하게 처리할 수 있도록 입력 검증 메서드를 구현하였다. 공백 제거, 빈 입력 방지, 잘못된 값 재입력 처리 등을 반영하였다.
-<img width="542" height="483" alt="zjalt06tnwjd" src="https://github.com/user-attachments/assets/429fa678-9e17-4515-af6d-d55e5b8efc42" />
+기존 `main` 브랜치의 코드를 직접 수정하지 않고,
+새로운 `quiz-play` 브랜치를 생성하여 퀴즈 기능을 개발하였다.
 
-- 진행도 표시: [1/5]과 같이 현재 몇 번째 문제인지 보여주어 사용자 편의성을 높임.
-- 유연한 정답 인정: .lower()를 사용하여 영어 정답의 경우 대소문자 구분 없이 정답 처리가 가능하도록 함.
-- 시각적 구분: -기호를 사용하여 문제 사이의 경계를 명확히 함.
+```bash
+git checkout -b quiz-play
 
 ---
 
-### Commit 07
-**브랜치 병합(merge): 퀴즈 풀기 기능을 main 브랜치에 병합**  
-
-별도 브랜치에서 퀴즈 풀기 및 정답 체크 기능을 구현하여, 사용자가 문제를 풀고 점수를 확인할 수 있도록 하였다.
-
----
-
-### Commit 08
+###  07
 **JSONDecodeError 예외 처리와 자동 복구 기능 추가**  
+JSONDecodeError는 JSON 파일의 형식이 올바르지 않을 때 발생하는 예외!
 
-브랜치에서 개발한 퀴즈 풀기 기능을 `main` 브랜치에 병합하고, 브랜치 생성과 병합 과정을 실습하였다.
+state.json 파일의 형식이 잘못되어 JSON 데이터를 정상적으로 불러오지 못하는 경우 JSONDecodeError와 ValueError를 예외 처리하도록 구현함. JSON 파일이 손상되거나 비어 있는 등의 문제가 발생하면 프로그램이 종료되지 않고 기본 데이터를 새로 생성하여 state.json에 저장하도록 처리함. 이를 통해 잘못된 JSON 파일로 인해 프로그램이 실행되지 않는 상황을 방지하고 자동으로 기본 상태로 복구할 수 있도록 구현함.
 <img width="542" height="483" alt="08" src="https://github.com/user-attachments/assets/740979ed-9997-4b2b-a837-c07ef35af3af" />
+<img width="498" height="514" alt="스크린샷 2026-08-14 오후 3 45 54" src="https://github.com/user-attachments/assets/051d80c3-415f-4837-9deb-40a03078ce70" />
+
 
 ---
+###  08
+**퀴즈 추가 기능**
+<img width="452" height="408" alt="스크린샷 2026-08-14 오후 3 35 05" src="https://github.com/user-attachments/assets/788a1f62-c2d1-4149-b8fd-871382dc921e" />
+<img width="452" height="528" alt="스크린샷 2026-08-14 오후 3 35 36" src="https://github.com/user-attachments/assets/cf5e6dde-f09e-4270-8166-727cd92c4ab7" />
 
-### Commit 09
+사용자가 직접 새로운 퀴즈를 추가할 수 있도록 구현하였다. 문제를 입력한 후 4개의 선지를 차례대로 입력하고, 그중 정답을 선택하면 새로운 퀴즈가 등록된다. 추가된 퀴즈는 state.json 파일에 저장되기 때문에 프로그램을 종료한 후에도 데이터가 유지된다. 또한 등록된 퀴즈는 퀴즈 목록에서 확인할 수 있으며, 이후 퀴즈 풀기 기능에서도 출제되도록 구현하였다. (직접 실행 후 확인 필)
+
+
+
+###  09
 **feat: Ctrl+C, EOFError 비정상 종료 처리 추가**  
 
-퀴즈 추가 및 목록 보기 기능을 구현하여, 사용자가 새로운 문제를 저장하고 기존 문제를 확인할 수 있도록 하였다.
+KeyboardInterrupt
+
+사용자가 프로그램 실행 중 Ctrl+C를 눌러 강제로 종료할 때 발생하는 예외임. 프로그램에서는 해당 예외를 처리하여 종료 안내를 출력하고 데이터를 저장한 후 안전하게 종료하도록 구현함.
+
+EOFError
+
+input()으로 사용자 입력을 받는 과정에서 더 이상 입력을 받을 수 없을 때 발생하는 예외임. 해당 예외가 발생하면 데이터를 저장하고 프로그램을 안전하게 종료하도록 처리함.
+
 <img width="626" height="549" alt="09" src="https://github.com/user-attachments/assets/457d31c7-0497-4ebb-986d-543bcb556c12" />
 
 ---
 
-### Commit 10
+###  10
 **Clone 실습: 복제한 저장소에서 README를 수정**
 
 `Ctrl+C` 또는 `EOFError` 발생 시 프로그램이 비정상 종료되지 않도록 예외 처리를 추가하여 안정성을 높였다.
@@ -226,7 +244,7 @@ play 및 display_menu 적용: 모든 사용자 입력 지점에 이 안전한 �
 - Data Format: JSON
 - Version Control: Git / GitHub
 
-## SUB Info
+## 11 SUB Info
 1. 파이썬 기초 (Python Basics)
 
 변수 (Variable): 데이터를 담는 공간. 데이터를 재사용하고, 이름(라벨)을 붙여서 관리하기 위해 사용
