@@ -183,6 +183,7 @@ Git의 브랜치 생성, 커밋, 병합 과정을 실습한다.
 
 ```bash
 git checkout -b quiz-play
+```
 
 ---
 
