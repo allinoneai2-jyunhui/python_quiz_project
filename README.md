@@ -229,7 +229,7 @@ input()으로 사용자 입력을 받는 과정에서 더 이상 입력을 받�
 
 <깃 저장소 복제 실습 완료 내용>
 원격 GitHub 저장소를 git clone 명령어로 로컬에 복제하였다.
-복제한 저장소(quiz-game-clone)에서 README.md 파일을 수정한 뒤 add, commit, push를 수행하여 변경 내용을 원격 저장소에 반영하였다.
+복제한 저장소(quiz-game-clone)에서 README.md 파일을 수정한 뒤 변경 내용을 원격 저장소에 반영하였다.
 이후 원래 프로젝트 폴더에서 git fetch와 git pull 명령어를 사용해 원격 저장소의 최신 내용을 가져왔고, 수정 사항이 정상적으로 반영되는 것을 확인하였다.
 이를 통해 저장소 복제, 복제본에서의 작업, 원격 반영, 원본 로컬 저장소 동기화 과정을 실습함.
 <img width="626" height="223" alt="Screenshot 2026-08-10 at 12 16 07 PM" src="https://github.com/user-attachments/assets/bb36cdd2-76b8-4e93-8b28-0886bf32f1ff" />
