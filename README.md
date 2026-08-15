@@ -68,8 +68,6 @@
 ```text
 .
 ├── main.py              # 프로그램의 시작점 (Entry Point)
-├── quiz_manager.py      # 데이터 관리 (JSON 로드/저장, 퀴즈 데이터 핸들링)
-├── quiz_game.py         # 게임 흐름 제어 (메뉴 출력, 퀴즈 실행, 입력 검증)
 ├── state.json           # 퀴즈 데이터 및 최고 점수가 저장되는 JSON 파일
 └── README.md            # 프로젝트 설명 및 가이드
 ```
