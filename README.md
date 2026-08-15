@@ -112,7 +112,7 @@ high_score: 역대 최고 점수 기록 (정수형) <br>
 ###  01
 **저장소 설정 및 로드맵 작성**  
 
-프로젝트의 전체 코드 초안을 작성하고, 퀴즈 게임의 기본 구조를 구성하였다.
+프로젝트의 전체 코드 초안을 작성하고, 퀴즈 게임의 기본 구조를 구성하였다. 처음 설계에서 보완할 점, 추가 구현할 점을 찾아 python-project에 구현하였다.
 
 ---
 
@@ -146,9 +146,7 @@ QuizGame는 사용자 인터페이스 및 게임 흐름을 담당하는 클래�
 <img width="500" height="154" alt="스크린샷 2026-08-14 오후 3 22 22" src="https://github.com/user-attachments/assets/f718f5d2-18ba-42ef-8e1d-464c10a1981f" />
 
 변수를 0으로 초기화하고 시작. 퀴즈를 모두 푼 후 획득한 점수를 기존 최고 점수와 비교하여 더 높은 점수일 경우 최고 점수를 갱신하도록 구현함. 최고 점수는 state.json의 high_score에 저장되어 프로그램을 종료한 후에도 기록이 유지됨.
-
 update_high_score() 메서드에서 현재 점수와 기존 최고 점수를 비교함. 현재 점수가 더 높은 경우에만 high_score를 새로운 점수로 변경하고 save_data()를 호출하여 JSON 파일에 저장함. 기존 최고 점수보다 낮거나 같은 경우에는 기존 기록을 그대로 유지함.
-
 이를 통해 사용자가 이전 기록보다 높은 점수를 획득했을 때 최고 기록을 경신했다는 메시지를 출력하도록 구현함.
 
 
@@ -171,7 +169,9 @@ update_high_score() 메서드에서 현재 점수와 기존 최고 점수를 비
 **브랜치 생성과 병합**  
 
 <img width="563" height="351" alt="스크린샷 2026-08-14 오후 3 31 49" src="https://github.com/user-attachments/assets/e84feff2-4e60-4cf7-9ead-e9ba61f055f8" />
+
 #### Git 브랜치 생성 및 병합 실습
+
 1. 작업 목적
 
 기존 퀴즈 프로그램에 4지선다형 퀴즈 기능을 추가하고,
@@ -200,6 +200,7 @@ state.json 파일의 형식이 잘못되어 JSON 데이터를 정상적으로 �
 ---
 ###  08
 **퀴즈 추가 기능**
+
 <img width="452" height="408" alt="스크린샷 2026-08-14 오후 3 35 05" src="https://github.com/user-attachments/assets/788a1f62-c2d1-4149-b8fd-871382dc921e" />
 <img width="452" height="528" alt="스크린샷 2026-08-14 오후 3 35 36" src="https://github.com/user-attachments/assets/cf5e6dde-f09e-4270-8166-727cd92c4ab7" />
 
@@ -210,11 +211,11 @@ state.json 파일의 형식이 잘못되어 JSON 데이터를 정상적으로 �
 ###  09
 **feat: Ctrl+C, EOFError 비정상 종료 처리 추가**  
 
-KeyboardInterrupt
+<KeyboardInterrupt>
 
 사용자가 프로그램 실행 중 Ctrl+C를 눌러 강제로 종료할 때 발생하는 예외임. 프로그램에서는 해당 예외를 처리하여 종료 안내를 출력하고 데이터를 저장한 후 안전하게 종료하도록 구현함.
 
-EOFError
+<EOFError>
 
 input()으로 사용자 입력을 받는 과정에서 더 이상 입력을 받을 수 없을 때 발생하는 예외임. 해당 예외가 발생하면 데이터를 저장하고 프로그램을 안전하게 종료하도록 처리함.
 
@@ -234,10 +235,15 @@ input()으로 사용자 입력을 받는 과정에서 더 이상 입력을 받�
 <img width="626" height="223" alt="Screenshot 2026-08-10 at 12 16 07 PM" src="https://github.com/user-attachments/assets/bb36cdd2-76b8-4e93-8b28-0886bf32f1ff" />
 
 <img width="338" height="214" alt="Screenshot 2026-08-10 at 12 28 30 PM" src="https://github.com/user-attachments/assets/cbc49923-0fab-4b96-adf9-9b6fe0df4c64" />
-[클론에서 확인 시 main.py, README.md, state.json이 원본 파일과 동일하게 들어가 있는 것을 확인할 수 있다!]
+
+[1차]
 
 <img width="305" height="342" alt="스크린샷 2026-08-14 오후 4 38 56" src="https://github.com/user-attachments/assets/a50e2f4f-5e87-441d-9ebc-f5a627114140" />
 <img width="927" height="442" alt="스크린샷 2026-08-14 오후 4 39 13" src="https://github.com/user-attachments/assets/7ac1151e-bc02-4437-bebd-947fba4a9477" />
+
+[2차]
+
+[클론에서 확인 시 main.py, README.md, state.json이 원본 파일과 동일하게 들어가 있는 것을 확인할 수 있다!]
 
 
 
