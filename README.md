@@ -192,8 +192,6 @@ JSONDecodeError는 JSON 파일의 형식이 올바르지 않을 때 발생하는
 
 state.json 파일의 형식이 잘못되어 JSON 데이터를 정상적으로 불러오지 못하는 경우 JSONDecodeError와 ValueError를 예외 처리하도록 구현함. JSON 파일이 손상되거나 비어 있는 등의 문제가 발생하면 프로그램이 종료되지 않고 기본 데이터를 새로 생성하여 state.json에 저장하도록 처리함. 이를 통해 잘못된 JSON 파일로 인해 프로그램이 실행되지 않는 상황을 방지하고 자동으로 기본 상태로 복구할 수 있도록 구현함.
 
-<img width="572" height="488" alt="스크린샷 2026-08-15 오후 4 12 59" src="https://github.com/user-attachments/assets/abec135d-0703-448c-af67-ae90cbe15baa" />
-
 
 <img width="498" height="514" alt="스크린샷 2026-08-14 오후 3 45 54" src="https://github.com/user-attachments/assets/051d80c3-415f-4837-9deb-40a03078ce70" />
 
